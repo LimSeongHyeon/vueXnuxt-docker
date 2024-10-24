@@ -45,16 +45,15 @@ cd vue-docker
 
 ### 2. 환경 변수 설정
 
-`.env` 파일을 열어 필요한 설정으로 수정하세요. 예시 값은 다음과 같습니다:
+`.env` 파일을 생성하고 필요한 설정으로 수정하세요. 예시 값은 다음과 같습니다:
 
 ```
 PRIVATE_KEY="ghp_PAT"
 REPOSITORY="Owner/Repository"       
 WEBHOOK_SECRET="LMZdaSnCkFIoO+Wi4K6YYkt2XBniflhB10yUoeC9Ml8HqP9uuA==
 ```
-`WEBHOOK_SECRET`에 대한 값은 `openssl rand -base64 37`와 같이 본인이 원하는 방식으로 발급하면 됩니다.
-이후 Github에서 해당 repository의 webhook 설정이 필요합니다.
-자세한 내용은 [GitHub Webhook 설정 공식 문서](https://docs.github.com/en/webhooks-and-events/webhooks/creating-webhooks)을 참조해주세요.
+
+
 
 ### 3. 프로젝트 빌드 및 실행
 
@@ -66,6 +65,8 @@ docker-compose up --build
 
 이 명령어는 Vue.js 애플리케이션과 리로더 서비스를 실행합니다.
 
+
+
 ### 4. 서비스 중지
 
 실행 중인 서비스를 중지하려면 다음 명령어를 사용하세요:
@@ -74,26 +75,18 @@ docker-compose up --build
 docker-compose down
 ```
 
+
+
 ## 추가 정보
 
 ### 리로더 서비스
-
 리로더 서비스는 애플리케이션의 변경 사항을 감지하여 자동으로 다시 로드하는 Python 기반의 서비스입니다. 해당 서비스는 `reloader` 디렉터리에 있으며, 의존성은 `requirements.txt` 파일에 정의되어 있습니다.
 
-### 시작 스크립트
+해당 기능을 이용하기 위해서 repository의 webhook 설정이 필요합니다.
+자세한 내용은 [GitHub Webhook 설정 공식 문서](https://docs.github.com/en/webhooks-and-events/webhooks/creating-webhooks)을 참조해주세요.
 
-`start.sh` 스크립트는 애플리케이션을 설정하고 실행하는 과정을 자동화합니다. 스크립트에 실행 권한을 부여해야 합니다:
+`WEBHOOK_SECRET`에 대한 값은 `openssl rand -base64 37`와 같이 본인이 원하는 방식으로 발급하면 됩니다.
 
-```bash
-chmod +x scripts/start.sh
-```
-
-스크립트를 실행하여 애플리케이션을 시작하려면 다음 명령어를 사용하세요:
-
-```bash
-./scripts/start.sh
-```
 
 ## 라이선스
-
 이 프로젝트는 [MIT 라이선스](LICENSE)에 따라 라이선스가 부여됩니다.
