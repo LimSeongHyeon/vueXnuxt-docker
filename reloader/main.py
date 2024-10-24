@@ -25,7 +25,6 @@ async def handle_webhook(request: Request):
 
         # Vue 컨테이너 내에서 명령어 실행
         vue_container.exec_run("git reset --hard origin/release")
-        vue_container.exec_run("git pull origin release")
         vue_container.exec_run("npm install")
         vue_container.exec_run("npm run build")
         vue_container.exec_run("npm run start")
