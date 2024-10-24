@@ -30,7 +30,7 @@ async def handle_webhook(request: Request):
     payload = await request.json()
 
     print(payload)
-    parint(request.headers)
+    print(request.headers)
 
     checkSignature(signature)
     
