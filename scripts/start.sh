@@ -1,5 +1,14 @@
 #!/bin/sh
 
+LOCK_FILE="/shared/build.lock"
+
+# 잠금 파일 생성
+echo "[배포를 시작합니다.]"
+touch "$LOCK_FILE"
+echo "LOCK FILE을 생성합니다.: $LOCK_FILE"
+echo ""
+
+
 # front-deploy 폴더가 없는 경우 GitHub에서 클론
 if [ ! -d "./front-deploy" ]; then
   echo "[GitHub 리포지토리에서 클론합니다.]"
@@ -29,6 +38,13 @@ echo ""
 echo "[앱 빌드를 진행합니다.]"
 npm run build || { echo "Build failed"; exit 1; }
 echo ""
+
+# lock 해제
+echo "Removing lock file..."
+echo "Lock file path: $LOCK_FILE"
+ls -l "$LOCK_FILE"
+rm -f "$LOCK_FILE"
+echo "Lock file removed."
 
 # Nuxt 앱 실행
 echo "[앱 실행을 진행합니다.]"
