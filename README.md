@@ -1,12 +1,16 @@
 
 # Vue X Nuxt Docker 프로젝트
 
-이 프로젝트는 Docker를 이용하여 Vue.js 애플리케이션을 설정하고 실행하는 환경을 제공합니다. Docker Compose를 사용하여 구성되었으며, 리로더 서비스가 포함되어 있습니다.
+이 프로젝트는 Docker를 이용하여 Vue + Nuxt 기반의 리포지토리를 설정하고 실행하는 환경을 제공합니다.
+
+.env파일을 구성하고 Docker에 등록하는 것으로 배포가 가능하며, Github의 Webhook을 이용하여 release branch로 push를 감지하여 재배포하는 기능으로 구성되어 있습니다.
 
 ## 요구 사항
 
 - Docker
 - Docker Compose
+- Github Webhook setup
+- .env setup
 
 ## 프로젝트 구조
 
@@ -37,14 +41,14 @@
 ## 시작하기
 
 ### 1. 리포지토리 클론
+가급적 clone보다는 파일로 받으시어 본인 설정에 알맞게 git을 사용하시는 것을 추천드립니다.
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/LimSeongHyeon/vueXnuxt-docker
 cd vue-docker
 ```
 
 ### 2. 환경 변수 설정
-
 `.env` 파일을 생성하고 필요한 설정으로 수정하세요. 예시 값은 다음과 같습니다:
 
 ```
@@ -60,7 +64,7 @@ WEBHOOK_SECRET="LMZdaSnCkFIoO+Wi4K6YYkt2XBniflhB10yUoeC9Ml8HqP9uuA==
 Docker Compose를 사용하여 프로젝트를 빌드하고 실행하세요:
 
 ```bash
-docker-compose up --build
+docker-compose up --build -d
 ```
 
 이 명령어는 Vue.js 애플리케이션과 리로더 서비스를 실행합니다.
@@ -76,16 +80,15 @@ docker-compose down
 ```
 
 
-
 ## 추가 정보
 
 ### 리로더 서비스
 리로더 서비스는 애플리케이션의 변경 사항을 감지하여 자동으로 다시 로드하는 Python 기반의 서비스입니다. 해당 서비스는 `reloader` 디렉터리에 있으며, 의존성은 `requirements.txt` 파일에 정의되어 있습니다.
 
 해당 기능을 이용하기 위해서 repository의 webhook 설정이 필요합니다.
-자세한 내용은 [GitHub Webhook 설정 공식 문서](https://docs.github.com/en/webhooks-and-events/webhooks/creating-webhooks)을 참조해주세요.
+자세한 내용은 [GitHub Webhook 설정 공식 문서](https://docs.github.com/ko/webhooks/using-webhooks/creating-webhooks)을 참조해주세요.
 
-`WEBHOOK_SECRET`에 대한 값은 `openssl rand -base64 37`와 같이 본인이 원하는 방식으로 발급하면 됩니다.
+`WEBHOOK_SECRET`에 대한 값은 `openssl rand -base64 37`와 같이 본인이 원하는 방식으로 발급하시면 됩니다.
 
 
 ## 라이선스
