@@ -49,7 +49,7 @@ cd vue-docker
 ```
 
 ### 2. 환경 변수 설정
-`.env` 파일을 생성하고 필요한 설정으로 수정하세요. 예시 값은 다음과 같습니다:
+`.env` 파일을 생성하고 필요한 설정으로 수정이 필요합니다. 예시 값은 다음과 같습니다:
 
 ```
 PRIVATE_KEY="ghp_PAT"
@@ -61,7 +61,7 @@ WEBHOOK_SECRET="LMZdaSnCkFIoO+Wi4K6YYkt2XBniflhB10yUoeC9Ml8HqP9uuA==
 
 ### 3. 프로젝트 빌드 및 실행
 
-Docker Compose를 사용하여 프로젝트를 빌드하고 실행하세요:
+Docker Compose를 사용하여 프로젝트를 빌드하고 실행합니다.:
 
 ```bash
 docker-compose up --build -d
@@ -73,7 +73,7 @@ docker-compose up --build -d
 
 ### 4. 서비스 중지
 
-실행 중인 서비스를 중지하려면 다음 명령어를 사용하세요:
+실행 중인 서비스를 중지하려면 다음 명령어를 사용합니다.:
 
 ```bash
 docker-compose down
