@@ -48,5 +48,5 @@ echo "Lock file removed."
 
 # Nuxt 앱 실행
 echo "[앱 실행을 진행합니다.]"
-npm run start || { echo "Failed to start app"; exit 1; }
+pm2-runtime start "npm run start" --name front || { echo "Failed to start app"; exit 1; }
 echo ""
