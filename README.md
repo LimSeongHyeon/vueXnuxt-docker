@@ -9,8 +9,12 @@
 
 - Docker
 - Docker Compose
-- Github Webhook setup
-- .env setup
+
+## 설정 사항
+
+- Github Webhook 설정
+- .env 설정
+- 개인 환경 포트 설정
 
 ## 프로젝트 구조
 
