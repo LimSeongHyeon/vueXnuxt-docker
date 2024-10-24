@@ -29,6 +29,9 @@ async def handle_webhook(request: Request):
     event = request.headers.get("X-GitHub-Event")
     payload = await request.json()
 
+    print(payload)
+    parint(request.headers)
+
     checkSignature(signature)
     
     if event != "push":
