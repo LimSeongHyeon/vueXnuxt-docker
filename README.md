@@ -32,7 +32,7 @@
     "start": "node .output/server/index.mjs"
   }
 }
-
+```
 
 ## 시작하기
 
@@ -47,7 +47,7 @@ cd vue-docker
 
 `.env` 파일을 생성하고 필요한 설정으로 수정하세요. 예시 값은 다음과 같습니다:
 
-```text
+```
 PRIVATE_KEY="ghp_PAT"
 REPOSITORY="Owner/Repository"       
 WEBHOOK_SECRET="LMZdaSnCkFIoO+Wi4K6YYkt2XBniflhB10yUoeC9Ml8HqP9uuA==
