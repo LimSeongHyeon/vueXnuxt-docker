@@ -14,7 +14,7 @@ services:
     build:
       context: ./reloader
     ports:
-      - "8000:8000"  # FastAPI 웹훅 수신 포트
+      - "5000:5000"  # FastAPI 웹훅 수신 포트
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock  # Docker 소켓을 마운트하여 Docker 컨테이너를 제어할 수 있게 함
     env_file:
