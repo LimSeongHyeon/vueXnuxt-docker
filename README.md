@@ -85,8 +85,9 @@
 
 ```bash
 git clone https://github.com/LimSeongHyeon/vueXnuxt-docker
-cd vue-docker
 ```
+가급적 파일로 다운로드하시어 개인의 git-repository로 등록하시는 것을 추천드립니다.
+
 <br>
 
 
