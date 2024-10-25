@@ -128,11 +128,9 @@ docker-compose down
 
 ### 리로더 서비스
 
-리로더 서비스는 애플리케이션의 변경 사항을 감지하여 자동으로 다시 로드하는 Python 기반의 서비스입니다. `reloader` 디렉터리 내에 있으며, 의존성은 `requirements.txt`에 정의되어 있습니다.
+리로더 서비스는 애플리케이션의 변경 사항을 감지하여 자동으로 다시 로드하는 Python 기반의 서비스입니다. `reloader` 디렉터리 내에 있으며, 의존성은 `requirements.txt`에 정의되어 있습니다. 또한 해당 기능은 Github Webhook 설정이 필요하며, 자세한 내용은 [GitHub Webhook 설정 공식 문서](https://docs.github.com/ko/webhooks/using-webhooks/creating-webhooks)를 참조해주세요.
 
-Github Webhook 설정이 필요하며, 자세한 내용은 [GitHub Webhook 설정 공식 문서](https://docs.github.com/ko/webhooks/using-webhooks/creating-webhooks)를 참조해주세요.
-
-`WEBHOOK_SECRET` 값은 `openssl rand -base64 37` 명령어를 사용해 발급할 수 있습니다.
+- `WEBHOOK_SECRET` 값은 `openssl rand -base64 37` 명령어를 사용해 발급할 수 있습니다.
 
 
 <br><br>
