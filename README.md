@@ -5,9 +5,7 @@
 
 .env 파일을 구성하고 Docker에 등록하여 배포가 가능하며, Github의 Webhook을 이용하여 release 브랜치로 push를 감지하여 재배포하는 기능을 제공합니다.
 
-<br>
----
-<br>
+<br><br>
 
 ## 목차
 1. [요구 사항](#요구-사항)
@@ -18,18 +16,14 @@
 6. [추가 정보](#추가-정보)
 7. [라이선스](#라이선스)
 
-<br>
----
-<br>
+<br><br>
 
 ## 요구 사항
 
 - Docker
 - Docker Compose
 
-<br>
----
-<br>
+<br><br>
 
 ## 설정 사항
 
@@ -37,9 +31,7 @@
 - .env 설정
 - 개인 환경 포트 설정
 
-<br>
----
-<br>
+<br><br>
 
 
 ## 프로젝트 구조
@@ -86,9 +78,7 @@
 ```
 
 
-<br>
----
-<br>
+<br><br>
 
 
 ## 시작하기
@@ -131,9 +121,7 @@ docker-compose down
 ```
 
 
-<br>
----
-<br>
+<br><br>
 
 
 ## 추가 정보
@@ -147,9 +135,7 @@ Github Webhook 설정이 필요하며, 자세한 내용은 [GitHub Webhook 설�
 `WEBHOOK_SECRET` 값은 `openssl rand -base64 37` 명령어를 사용해 발급할 수 있습니다.
 
 
-<br>
----
-<br>
+<br><br>
 
 
 ## 라이선스
