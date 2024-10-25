@@ -27,7 +27,7 @@ services:
       - internal
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock  # Docker 소켓을 마운트하여 Docker 컨테이너를 제어할 수 있게 함
-      - shared-data:/shared
+      - shared-data:/shared # lock 파일 공유 볼륨
     env_file:
       - .env
     depends_on:
@@ -40,7 +40,7 @@ services:
       context: ./nginx      # nginx 폴더를 빌드 기준 경로로 설정
       dockerfile: Dockerfile # nginx 폴더 내 Dockerfile 사용
     ports:
-      - "80:80"
+      - "80:80"    # 메인 수신 포트 (nginx 포트)
     networks:
       - internal   # nginx는 internal 네트워크에서 front/reloader와 소통
       - external   # nginx는 external 네트워크를 통해 호스트와 소통
