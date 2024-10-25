@@ -35,6 +35,7 @@ services:
     restart: always
   
   nginx:
+    container_name: nginx
     build:
       context: ./nginx      # nginx 폴더를 빌드 기준 경로로 설정
       dockerfile: Dockerfile # nginx 폴더 내 Dockerfile 사용
