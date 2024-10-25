@@ -18,13 +18,19 @@
 
 ## 프로젝트 구조
 
-- `Dockerfile`: 메인 Vue.js 애플리케이션의 환경을 정의합니다.
+
 - `docker-compose.yml`: Docker Compose로 Vue.js 애플리케이션 및 추가 서비스를 실행하기 위한 설정 파일입니다.
-- `scripts/start.sh`: 애플리케이션을 시작하는 스크립트입니다.
+- `frontend/`: Vue X Nuxt 기반의 Front 셋업을 위한 디렉터리입니다.
+  - `Dockerfile`: 메인 Vue.js 애플리케이션의 환경을 정의합니다.
+  - `scripts/`: 셋업에 필요한 스크립트들을 포함하는 디렉토리입니다.
+    - `scripts/start.sh`: clone을 하고 필요한 패키지를 설치하여 빌드하고 배포하는 스크립트입니다.
 - `reloader/`: Python 기반의 리로더 서비스가 포함된 디렉터리입니다.
   - `requirements.txt`: 리로더 서비스의 Python 의존성 목록입니다.
   - `Dockerfile`: 리로더 서비스의 환경을 정의합니다.
-  - `main.py`: 리로더 서비스의 메인 스크립트입니다.
+  - `main.py`: 리로더 서비스의 메인 코드입니다.
+- `nginx/`: frontend와 reloader를 분기시켜줄 nginx의 설정을 위한 디렉터리입니다.
+  - `Dockerfile`: nginx에 대한 환경을 정의합니다.
+  - `nginx.conf`: 실제로 사용할 nginx에 대한 설정 파일입니다. 
 - `.env`: 환경 변수를 설정하는 파일입니다.
 
 ## Vue X Nuxt 애플리케이션 실행
