@@ -31,6 +31,7 @@ echo ""
 
 # npm 패키지 설치
 echo "[npm 패키지 설치를 진행합니다.]"
+rm -rf node_modules package-lock.json yarn.lock
 npm install --legacy-peer-deps --ignore-scripts || { echo "npm install failed"; exit 1; }
 echo ""
 
