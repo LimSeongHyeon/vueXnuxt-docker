@@ -27,6 +27,7 @@ def reload_vue_container():
 
         # Vue 컨테이너 내에서 명령어 실행
         commandRun("git reset --hard origin/release")
+        commandRun("git pull")
         commandRun("npm install --legacy-peer-deps --ignore-scripts")
         commandRun("npm run build")
         commandRun("pm2 restart front")
@@ -36,7 +37,7 @@ def reload_vue_container():
         os.remove(lock_file)
 
 @app.post("/github-webhook")
-async def handle_webhook(request: Request):
+async def handle_webhook(request: Request, background_tasks: BackgroundTasks):
     # 헤더에서 웹훅 고유 값 추출 (예시로 'X-Hub-Signature-256' 사용)
     signature = request.headers.get("X-Hub-Signature-256")
     event = request.headers.get("X-GitHub-Event")
