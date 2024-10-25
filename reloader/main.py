@@ -24,7 +24,7 @@ def checkSignature(signature, payload):
         raise HTTPException(status_code=403, detail="Invalid X-Hub-Signature")
 
 
-@app.post("/webhook")
+@app.post("/github-webhook")
 async def handle_webhook(request: Request):
     # 헤더에서 웹훅 고유 값 추출 (예시로 'X-Hub-Signature-256' 사용)
     signature = request.headers.get("X-Hub-Signature-256")

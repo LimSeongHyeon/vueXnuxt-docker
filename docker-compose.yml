@@ -3,10 +3,13 @@ services:
   frontend:
     container_name: frontend
     build:
-      context: .
+      context: ./frontend
       dockerfile: Dockerfile
-    ports:
-      - "3000:3000"  # Nuxt.js 앱 포트
+    expose:
+      - "3000"  # Nuxt.js 앱 포트
+    networks:
+      - internal
+      - external
     env_file:
       - .env
     volumes:
@@ -17,8 +20,11 @@ services:
     container_name: reloader
     build:
       context: ./reloader
-    ports:
-      - "5050:5050"  # FastAPI 웹훅 수신 포트
+      dockerfile: Dockerfile
+    expose:
+      - "5050"  # FastAPI 웹훅 수신 포트
+    networks:
+      - internal
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock  # Docker 소켓을 마운트하여 Docker 컨테이너를 제어할 수 있게 함
       - shared-data:/shared
@@ -27,6 +33,22 @@ services:
     depends_on:
       - frontend  # frontend 서비스가 실행된 후 시작
     restart: always
+  
+  nginx:
+    build:
+      context: ./nginx      # nginx 폴더를 빌드 기준 경로로 설정
+      dockerfile: Dockerfile # nginx 폴더 내 Dockerfile 사용
+    ports:
+      - "80:80"
+    networks:
+      - internal   # nginx는 internal 네트워크에서 front/reloader와 소통
+      - external   # nginx는 external 네트워크를 통해 호스트와 소통
 
 volumes:
   shared-data:
+
+networks:
+  internal:
+    internal: true  # internal 네트워크는 외부와 소통하지 않음
+  external:
+    driver: bridge  # external 네트워크는 호스트와 소통 가능
