@@ -32,12 +32,12 @@ echo ""
 # npm 패키지 설치
 echo "[npm 패키지 설치를 진행합니다.]"
 rm -rf node_modules package-lock.json yarn.lock
-npm install --legacy-peer-deps --ignore-scripts || { echo "npm install failed"; exit 1; }
+yarn install --ignore-scripts || { echo "npm install failed"; exit 1; }
 echo ""
 
 # Nuxt 앱 빌드
 echo "[앱 빌드를 진행합니다.]"
-npm run build || { echo "Build failed"; exit 1; }
+yarn build || { echo "Build failed"; exit 1; }
 echo ""
 
 # lock 해제
@@ -49,5 +49,5 @@ echo "Lock file removed."
 
 # Nuxt 앱 실행
 echo "[앱 실행을 진행합니다.]"
-pm2-runtime start "npm run start" --name front || { echo "Failed to start app"; exit 1; }
+pm2-runtime start "yarn start" --name front || { echo "Failed to start app"; exit 1; }
 echo ""

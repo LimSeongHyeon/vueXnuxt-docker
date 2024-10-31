@@ -13,6 +13,7 @@ COPY scripts/start.sh ./
 
 RUN npm install -g npm@10.9.0
 RUN npm install -g pm2
+RUN npm install -g yarn
 
 EXPOSE 3000
 
